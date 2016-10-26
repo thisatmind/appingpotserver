@@ -3,7 +3,7 @@ export default class UserController {
     constructor() {}
 
     static signin(req, res, next) {
-        const {userType, id, name} = req.params;
+        const {userType, id, name} = req.body;
 
         // save user to db
         console.log('user-controller signin');
