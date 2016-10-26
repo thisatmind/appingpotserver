@@ -12,5 +12,5 @@ app.use(bodyParser.json())
 app.use('/user', user);
 
 app.listen('8000', (req, res, next) => {
-   console.log('server is listening 8000');
+   console.log('server is listening 8080');
 });

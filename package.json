@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/thisatmind/appintpotserver#readme",
   "dependencies": {
+    "babel-runtime": "^6.18.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "mysql": "^2.11.1"
