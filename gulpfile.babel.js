@@ -3,7 +3,7 @@ import babel from 'gulp-babel';
 import nodemon from 'gulp-nodemon';
 
 gulp.task('build', () =>
-    gulp.src('src/app.js')
+    gulp.src('src/**/*.js')
         .pipe(babel({
             plugins: ['transform-runtime']
         }))
