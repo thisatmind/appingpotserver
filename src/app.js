@@ -5,6 +5,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.listen('8080', (req, res, next) => {
-   console.log('server is listening 8080'); 
+
+
+app.listen('8000', (req, res, next) => {
+   console.log('server is listening 8000');
 });
