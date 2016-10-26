@@ -11,6 +11,8 @@ app.use(bodyParser.json())
 // express router
 app.use('/user', user);
 
-app.listen('8000', (req, res, next) => {
-   console.log('server is listening 8080');
+const port = process.env.PORT || 8080;
+
+app.listen(port, (req, res, next) => {
+   console.log(`server is listening ${port}`);
 });
