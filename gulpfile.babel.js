@@ -7,7 +7,7 @@ gulp.task('build', () =>
         .pipe(babel({
             plugins: ['transform-runtime']
         }))
-        .pipe(gulp.dest('dist/src'))
+        .pipe(gulp.dest('dist'))
 );
 
 gulp.task('server', ['build'], () => {
