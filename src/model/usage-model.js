@@ -7,6 +7,7 @@ const model = {
       let query = "";
       const options = [];
       
+      console.log(usageList);
       usageList.map(data => {
         options.push(data.packageName);
         options.push(data.userId);
@@ -16,6 +17,8 @@ const model = {
       });
       
       query = `${query.substr(0, query.length -1)};`;
+      console.log(query);
+      console.log(options);
       return pool.query(query, options);
     }
 };
