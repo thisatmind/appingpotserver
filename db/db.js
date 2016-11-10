@@ -8,5 +8,5 @@ const pool = mysql.createPool({
     user: config.db.user,
     password: config.db.password,
     connectionLimit: config.db.connectionLimit,
-    multipleStatements: config.db.multipleStatements || false,
+    multipleStatements: config.db.multipleStatements || false
 });

@@ -41,3 +41,6 @@ dist
 
 ## webstrom
 .idea
+
+## configuration
+config/local.json

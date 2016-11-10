@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import user from './router/user-router';
+import usage from './router/usage-router';
+import install from './router/install-router';
 
 const app = express();
 
@@ -10,6 +12,8 @@ app.use(bodyParser.json())
 
 // express router
 app.use('/user', user);
+app.use('/usage', usage);
+app.use('/install', install);
 
 const port = process.env.PORT || 8080;
 

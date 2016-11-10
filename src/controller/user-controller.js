@@ -2,14 +2,29 @@ export default class UserController {
 
     constructor() {}
 
-    static signin(req, res, next) {
-        const {userType, id, name} = req.body;
+    static signup(req, res, next) {
+        const {userType, facebookToken} = req.body;
 
         // save user to db
-        console.log('user-controller signin');
-        console.log(userType, id, name);
+        
+          
+        const query = "INSERT INTO user (userType, id, name) VALUES (?,?,?);";
+            
+        // pool.getConnection(function(err, connection){
+        //     if(err) callback(err);
+        //     else    callback(null, connection);
+        // });
+        //   connection.query( query, [params.nickname, params.email, hash], function(err, rows) {
+        //     if(err) callback(err);
+        //     else    callback(null, rows);
+        //     connection.release();
+        //   });
+        
+        
+        console.log('user-controller signup');
+        console.log(userType, facebookToken);
         res.send({
-            message: "success to signin",
+            message: "success to signup",
         })
     }
 
