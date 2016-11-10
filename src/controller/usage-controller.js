@@ -7,7 +7,7 @@ export default class UsageController {
     static add(req, res, next) {
         const {list} = req.body;
         UsageModel.addUsage(list)
-        .then(res => {
+        .then(result => {
           res.status(200).send({
               message: "success to save usage",
           });
