@@ -4,7 +4,7 @@ const FACEBOOK_BASE_URL = 'https://graph.facebook.com';
 const FACEBOOK_USER_PROFILE_URL = '/me';
 const FACEBOOK_PROFILE_IMAGE_URL = '/picture';
 
-export const FacebookManager = {
+const FacebookManager = {
   getProfile: (accessToken) => {
     return request({
         uri: `${FACEBOOK_BASE_URL}${FACEBOOK_USER_PROFILE_URL}`,
@@ -42,3 +42,5 @@ export const FacebookManager = {
     });
   }
 };
+
+export default FacebookManager;
