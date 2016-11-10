@@ -6,12 +6,11 @@ const model = {
       let query = "INSERT INTO raw_app_usage VALUES";
       const options = [];
       
-      console.log(usageList);
       usageList.map(data => {
-        options.push(data.packageName);
         options.push(data.userId);
-        options.push(data.date);
+        options.push(data.packageName);
         options.push(data.usage);
+        options.push(data.date);
         query = `${query}(?,?,?,?),`;
       });
       
