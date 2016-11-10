@@ -10,25 +10,6 @@ const mysqlPool = mysql.createPool({
     connectionLimit: config.db.connectionLimit,
     multipleStatements: config.db.multipleStatements || false
 });
-pool.getConnection(function(err, connection){
-        if(err) callback(err);
-        else    callback(null, connection);
-      });
-    
-    },
-    function( connection, callback){
-
-      connection.query( query, [userId], function(err, rows) {
-        if(err) callback(err);
-        else    callback(null, rows[0]);
-        connection.release();
-      });
-
-    }
-  ], function(err, row){
-    if(err) finalCallback(err, null);
-    else    finalCallback(err, row);
-  });
 
 const pool = {
     getConnection: () => {

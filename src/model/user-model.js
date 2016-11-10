@@ -1,4 +1,4 @@
-import pool from '../../db/db';
+import pool from '../db/db';
 import FacebookManager from '../facebook-util';
 
 // @TODO have to define userType in android
