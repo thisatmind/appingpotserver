@@ -24,7 +24,7 @@ const model = {
     addFacebookUser: (firebaseId, facebookToken) => {
         return FacebookManager.getId(facebookToken)
             .then(id => {
-              const query = "INSERT INTO user (?,?,?);";
+              const query = "INSERT INTO user VALUES (?,?,?);";
               return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id]);
             });
     }
