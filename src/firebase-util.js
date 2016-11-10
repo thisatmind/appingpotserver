@@ -7,8 +7,10 @@ const FirebaseManager = {
     
     sendSpecific: (userId) => {
         return request({
+            method: 'POST',
             uri: FIREBASE_FCM_URL,
             headers: {
+                'Content-Type' :' application/json',
                 'Authorization':`key=${FIREBASE_APP_KEY}`
             },
             body: {
