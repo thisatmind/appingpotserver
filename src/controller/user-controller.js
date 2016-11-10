@@ -1,31 +1,23 @@
+import model from '../model/user-model';
+
 export default class UserController {
 
     constructor() {}
 
     static signup(req, res, next) {
-        const {userType, facebookToken} = req.body;
-
+        const {userType, firebaseId, facebookToken} = req.body;
+       
         // save user to db
-        
-          
-        const query = "INSERT INTO user (userType, id, name) VALUES (?,?,?);";
-            
-        // pool.getConnection(function(err, connection){
-        //     if(err) callback(err);
-        //     else    callback(null, connection);
-        // });
-        //   connection.query( query, [params.nickname, params.email, hash], function(err, rows) {
-        //     if(err) callback(err);
-        //     else    callback(null, rows);
-        //     connection.release();
-        //   });
-        
-        
-        console.log('user-controller signup');
-        console.log(userType, facebookToken);
-        res.send({
-            message: "success to signup",
-        })
+        return model.addUser(userType, firebaseId, facebookToken)
+            .then(res => {
+                res.send({
+                    message: "success to signup",
+                })
+            })
+            .catch(err => {
+                res.status(500).send(err);
+                next();
+            });
     }
 
 }
