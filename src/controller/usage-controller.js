@@ -1,24 +1,22 @@
+import UsageModel from '../model/usage-model';
+
 export default class UsageController {
 
     constructor() {}
 
     static add(req, res, next) {
-        const {userType, id, name} = req.body;
-        console.log(req.body);
-        /*
-            id : String
-            userId: String
-            installedAppId : 
-            dailyUsageTime : sec * 24 string
-            dailyCount : 
-            createdDate
-        */
-        // save usage to db
-        console.log('usage-controller signin');
-
-        res.send({
-            message: "success to save usage",
+        const {list} = req.body;
+        UsageModel.addUsage(list)
+        .then(res => {
+          res.send({
+              message: "success to save usage",
+          });
+          next();
         })
+        .catch(err => {
+          res.status(500).send(err);
+          return next();
+        });
     }
 
 }
