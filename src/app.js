@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import user from './router/user-router';
 import usage from './router/usage-router';
+import FirebaseManager from './firebase-util';
 import install from './router/install-router';
 
 const app = express();

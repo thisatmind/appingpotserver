@@ -11,5 +11,6 @@
         "multipleStatements": false
     },
     "FACEBOOK_APP_ID": "123",
-    "FACEBOOK_APP_ACCESS_TOKEN":"q243"
+    "FACEBOOK_APP_ACCESS_TOKEN":"q243",
+    "FIREBASE_APP_KEY":"23423j"
 }

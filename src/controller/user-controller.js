@@ -1,4 +1,5 @@
 import model from '../model/user-model';
+import FirebaseManager from '../firebase-util';
 
 export default class UserController {
 
@@ -20,4 +21,19 @@ export default class UserController {
             });
     }
 
+    static sendfcm(req, res, next) {
+        const {userId} = req.body;
+        
+        return FirebaseManager.sendSpecific(userId)
+            .then(res => {
+                res.status(200).send({
+                    "message":"message sended"
+                });
+                next();
+            })
+            .catch(err => {
+                res.status(500).send(err);
+                next();
+            })
+    }
 }
