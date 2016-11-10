@@ -1,16 +1,24 @@
+import InstallModel from '../model/install-model';
 export default class InstallController {
 
     constructor() {}
 
     static add(req, res, next) {
         
-        console.log(req.body);
-        // save installed app list
-        console.log('install-controller add');
+        const {installedAppList} = req.body;
         
-        res.send({
-            message: "success to save install",
+        return InstallModel.add(installedAppList)
+        .then(res => {
+            res.status(200).send({
+                message: "success to save install",
+            });
+            next();
+        }).
+        catch(err => {
+            res.status(500).send(err);
+            next();
         })
+        
     }
 
 }

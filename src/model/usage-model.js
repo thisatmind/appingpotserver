@@ -4,7 +4,7 @@ const model = {
     addUsage: (usageList) => {
       
       const stmt = "INSERT INTO raw_app_usage VALUES (?,?,?,?)"
-      const query = "";
+      let query = "";
       const options = [];
       
       usageList.map(data => {
