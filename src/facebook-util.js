@@ -1,4 +1,4 @@
-import config from './../config/local.json';
+import config from './../config/index.json';
 import request from 'request-promise';
 const FACEBOOK_BASE_URL = 'https://graph.facebook.com';
 const FACEBOOK_USER_PROFILE_URL = '/me';
