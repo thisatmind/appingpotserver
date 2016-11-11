@@ -22,6 +22,9 @@ const model = {
         
     },
     addFacebookUser: (firebaseId, facebookToken, deviceToken) => {
+      console.log(firebaseId);
+      console.log(facebookToken);
+      console.log(deviceToken);
         return FacebookManager.getId(facebookToken)
             .then(id => {
               const query = "INSERT INTO user VALUES (?,?,?,?);";

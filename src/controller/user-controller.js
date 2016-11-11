@@ -7,7 +7,7 @@ export default class UserController {
 
     static signup(req, res, next) {
         const {userType, firebaseId, facebookToken, deviceToken} = req.body;
-       
+       console.log(req.body);
         // save user to db
         return model.addUser(userType, firebaseId, facebookToken, deviceToken)
             .then(res => {
@@ -16,6 +16,7 @@ export default class UserController {
                 })
             })
             .catch(err => {
+                console.log(err);
                 res.status(500).send(err);
                 next();
             });
