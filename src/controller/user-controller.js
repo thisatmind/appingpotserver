@@ -6,10 +6,10 @@ export default class UserController {
     constructor() {}
 
     static signup(req, res, next) {
-        const {userType, firebaseId, facebookToken} = req.body;
+        const {userType, firebaseId, facebookToken, deviceToken} = req.body;
        
         // save user to db
-        return model.addUser(userType, firebaseId, facebookToken)
+        return model.addUser(userType, firebaseId, facebookToken, deviceToken)
             .then(res => {
                 res.send({
                     message: "success to signup",

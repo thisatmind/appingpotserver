@@ -13,7 +13,7 @@ const model = {
             case USER_TYPE.ANONYMOUS:
                 return model.addAnonymousUser();
             case USER_TYPE.FACEBOOK:
-                return model.addFacebookUser(firebaseId, options[0]);
+                return model.addFacebookUser(firebaseId, options[0], options[1]);
             default:
                 break;
         }
@@ -21,11 +21,11 @@ const model = {
     addAnonymousUser: () => {
         
     },
-    addFacebookUser: (firebaseId, facebookToken) => {
+    addFacebookUser: (firebaseId, facebookToken, deviceToken) => {
         return FacebookManager.getId(facebookToken)
             .then(id => {
-              const query = "INSERT INTO user VALUES (?,?,?);";
-              return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id]);
+              const query = "INSERT INTO user VALUES (?,?,?,?);";
+              return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id, deviceToken]);
             });
     }
 };
