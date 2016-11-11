@@ -8,7 +8,7 @@ export default class InstallController {
         const {installedAppList} = req.body;
         
         return InstallModel.add(installedAppList)
-        .then(res => {
+        .then(result => {
             res.status(200).send({
                 message: "success to save install",
             });

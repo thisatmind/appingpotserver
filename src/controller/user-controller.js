@@ -10,7 +10,7 @@ export default class UserController {
        console.log(req.body);
         // save user to db
         return model.addUser(userType, firebaseId, facebookToken, deviceToken)
-            .then(res => {
+            .then(result => {
                 res.send({
                     message: "success to signup",
                 })
@@ -26,7 +26,7 @@ export default class UserController {
         const {userId} = req.body;
         
         return FirebaseManager.sendSpecific(userId)
-            .then(res => {
+            .then(result => {
                 res.status(200).send({
                     "message":"message sended"
                 });
