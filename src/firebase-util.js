@@ -14,8 +14,10 @@ const FirebaseManager = {
                 'Authorization':`key=${FIREBASE_APP_KEY}`
             },
             body: {
-                "title": "this is test message title",
-                "body": "this is test body",
+                "notification" : {
+                    "title": "this is test message title",
+                    "body": "this is test body",
+                },
                 "data": {
                     "testKey":"testData"
                 },
