@@ -25,11 +25,15 @@ const model = {
       console.log(firebaseId);
       console.log(facebookToken);
       console.log(deviceToken);
-        return FacebookManager.getId(facebookToken)
-            .then(id => {
-              const query = "INSERT INTO user VALUES (?,?,?,?);";
-              return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id, deviceToken]);
-            });
+      return FacebookManager.getId(facebookToken)
+          .then(id => {
+            const query = "INSERT INTO user VALUES (?,?,?,?);";
+            return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id, deviceToken]);
+          });
+    },
+    updateUser: (userId, deviceToken) => {
+      const query = "UPDATE user SET deviceToken = ? WHERE id = ?;"
+      return pool.query(query, [userId, deviceToken]);
     }
 };
 

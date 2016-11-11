@@ -35,4 +35,20 @@ export default class UserController {
                 next();
             })
     }
+    
+    static updateDeviceToken(req, res, next) {
+        const {userId, deviceToken} = req.body;
+        
+        return model.updateUser(userId, deviceToken)
+            .then(result => {
+                res.send({
+                    message: "success to update firebase device token"
+                });
+                next();
+            })
+            .catch(err => {
+                res.status(500).send(err);
+                next();
+            })
+    }
 }
