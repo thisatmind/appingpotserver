@@ -27,9 +27,7 @@ export default class UserController {
         
         return FirebaseManager.sendSpecific(userId)
             .then(result => {
-                res.status(200).send({
-                    "message":"message sended"
-                });
+                res.status(200).send(result);
                 next();
             })
             .catch(err => {
