@@ -19,7 +19,8 @@ const FirebaseManager = {
                     body
                 },
                 data,
-                "to": userId
+                "to": userId,
+                "delay_while_idle": true
             },
             json: true
         })
