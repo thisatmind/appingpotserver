@@ -21,6 +21,7 @@ export default class RecoController {
             return Promise.all(list.map(data => {
                 const payload = {
                    id: data.recoId,
+                   userId: data.userId,
                    packageName: data.packageName,
                    icon: data.icon,
                    marketUrl: data.marketUrl,
@@ -31,7 +32,7 @@ export default class RecoController {
           })
           .then(pushResult => {
             res.status(200).send({
-                message: "success to save count",
+                message: "success to send recommendations",
             });
             next();
           })
