@@ -5,7 +5,7 @@ const FIREBASE_FCM_URL = 'https://fcm.googleapis.com/fcm/send';
 const FIREBASE_APP_KEY = process.env.FIREBASE_APP_KEY || config.FIREBASE_APP_KEY;
 const FirebaseManager = {
     
-    sendSpecific: (userId, title, body) => {
+    sendSpecific: (userId, title, body, data) => {
         return request({
             method: 'POST',
             uri: FIREBASE_FCM_URL,
@@ -18,9 +18,7 @@ const FirebaseManager = {
                     title,
                     body
                 },
-                "data": {
-                    "testKey":"testData"
-                },
+                data,
                 "to": userId
             },
             json: true

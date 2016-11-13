@@ -23,9 +23,9 @@ export default class UserController {
     }
 
     static sendfcm(req, res, next) {
-        const {userId, title, body} = req.body;
+        const {userId, title, body, data} = req.body;
         
-        return FirebaseManager.sendSpecific(userId, title, body)
+        return FirebaseManager.sendSpecific(userId, title, body, data)
             .then(result => {
                 res.status(200).send(result);
                 next();
