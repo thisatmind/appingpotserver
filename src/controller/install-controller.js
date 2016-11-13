@@ -6,7 +6,7 @@ export default class InstallController {
     static add(req, res, next) {
         
         const {list} = req.body;
-        
+        console.log(list);
         return InstallModel.add(list)
         .then(result => {
             res.status(200).send({
