@@ -1,7 +1,7 @@
 import pool from '../db';
 import uuid from 'uuid4';
 const model = {
-    addUsage: (appList) => {
+    add: (appList) => {
       
       let query = "INSERT INTO installed_app VALUES";
       const options = [];
