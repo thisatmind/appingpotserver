@@ -29,7 +29,14 @@ const model = {
           .then(id => {
             const query = "INSERT INTO user VALUES (?,?,?,?);";
             return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id, deviceToken]);
-          });
+          })
+          .then(() => {
+            return FacebookManager.getProfile(facebookToken);
+          })
+          .then(profile => {
+            console.log(profile);
+            return ;
+          })
     },
     updateUser: (userId, deviceToken) => {
       const query = "UPDATE user SET deviceToken = ? WHERE id = ?;"

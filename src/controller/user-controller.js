@@ -7,7 +7,7 @@ export default class UserController {
 
     static signup(req, res, next) {
         const {userType, firebaseId, facebookToken, deviceToken} = req.body;
-       console.log(req.body);
+        console.log(req.body);
         // save user to db
         return model.addUser(userType, firebaseId, facebookToken, deviceToken)
             .then(result => {
@@ -21,7 +21,20 @@ export default class UserController {
                 next();
             });
     }
-
+    
+    static getProfile(req, res, next) {
+        const {facebookToken} = req.query.facebookToken;
+        return FirebaseManager.getProfile(facebookToken)
+            .then(profile => {
+                res.status(200).send(profile);
+                next();
+            })
+            .catch(err => {
+                res.status(500).send(err);
+                next();
+            })
+    }
+    
     static sendfcm(req, res, next) {
         const {userId, title, body, data} = req.body;
         

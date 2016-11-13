@@ -10,7 +10,7 @@ const FacebookManager = {
     return request({
         uri: `${FACEBOOK_BASE_URL}${FACEBOOK_USER_PROFILE_URL}`,
         qs: {
-          fields: 'name,email,verified,birthday,gender,friends',
+          fields: 'name,email,verified,gender,age_range,friends',
           access_token: accessToken
         },
         json: true
