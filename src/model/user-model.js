@@ -34,6 +34,7 @@ const model = {
             return FacebookManager.getProfile(facebookToken);
           })
           .then(profile => {
+            console.log(profile);
             const {id, birthday, gender, friends} = profile;
             console.log(friends);
             const query = "INSERT INTO facebook VALUES (?,?,?);";
