@@ -34,8 +34,9 @@ const model = {
             return FacebookManager.getProfile(facebookToken);
           })
           .then(profile => {
-            console.log(profile);
-            return ;
+            const facebookInfo = [profile.id, profile.age_range.min, profile.gender];
+            const query = "INSERT INTO facebook VALUES (?,?,?);";
+            return pool.query(query, facebookInfo);
           })
     },
     updateUser: (userId, deviceToken) => {
