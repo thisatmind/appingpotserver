@@ -24,7 +24,7 @@ export default class UserController {
     
     static getProfile(req, res, next) {
         const {facebookToken} = req.params;
-        return FirebaseManager.getProfile(facebookToken)
+        return FacebookManager.getProfile(facebookToken)
             .then(profile => {
                 res.status(200).send(profile);
                 next();
