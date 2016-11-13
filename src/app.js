@@ -11,7 +11,9 @@ const app = express();
 
 // express config
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.json({
+    limit: '10mb'
+}))
 
 // express router
 app.use('/user', user);
