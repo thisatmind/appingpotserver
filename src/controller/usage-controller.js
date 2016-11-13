@@ -6,6 +6,7 @@ export default class UsageController {
 
     static add(req, res, next) {
         const {list} = req.body;
+        console.log(list);
         UsageModel.addUsage(list)
         .then(result => {
           res.status(200).send({
