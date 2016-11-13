@@ -3,6 +3,7 @@ import request from 'request-promise';
 const FACEBOOK_BASE_URL = 'https://graph.facebook.com';
 const FACEBOOK_USER_PROFILE_URL = '/me';
 const FACEBOOK_PROFILE_IMAGE_URL = '/picture';
+const FACEBOOK_USER_FRIENDS_URL = '/me/friends'
 
 const FacebookManager = {
   getProfile: (accessToken) => {
