@@ -1,7 +1,7 @@
 import pool from '../db';
 
 const model = {
-    addUsage: (countList) => {
+    addCount: (countList) => {
       
       let query = "INSERT INTO raw_app_count VALUES";
       const options = [];
