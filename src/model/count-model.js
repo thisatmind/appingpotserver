@@ -9,8 +9,8 @@ const model = {
       countList.map(data => {
         options.push(data.userId);
         options.push(data.packageName);
-        options.push(data.usage);
-        options.push(data.date);
+        options.push(data.count);
+        options.push(data.createdDate);
         query = `${query}(?,?,?,?),`;
       });
       
