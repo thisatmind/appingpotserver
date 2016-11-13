@@ -1,5 +1,6 @@
 import model from '../model/user-model';
 import FirebaseManager from '../firebase-util';
+import FacebookManager from '../facebook-util';
 
 export default class UserController {
 
