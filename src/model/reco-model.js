@@ -19,6 +19,11 @@ const model = {
       
       query = `${query.substr(0, query.length -1)};`;
       return pool.query(query, options);
+    },
+    
+    updateRecoResult: (recoId, result) => {
+      const query = "UPDATE install_reco SET result = ? WHERE recoId = ?;"
+      return pool.query(query, [result, recoId]);
     }
 };
 

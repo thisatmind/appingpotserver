@@ -42,5 +42,21 @@ export default class RecoController {
             return next();
           });
     }
+    
+    static updateResult(req, res, next) {
+      const {recoId, result} = req.body;
+       RecoModel.updateRecoResult(recoId, result)
+          .then(result => {
+            res.status(200).send({
+                message: "success to update reco result",
+            });
+            next();
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).send(err);
+            return next();
+          });
+    }
 
 }
