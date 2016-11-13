@@ -14,7 +14,8 @@ const model = {
         options.push(data.title);
         options.push(data.icon);
         options.push(data.marketUrl);
-        query = `${query}(?,?,?,?,?,?,?),`;
+        options.push("none");
+        query = `${query}(?,?,?,?,?,?,?,?),`;
       });
       
       query = `${query.substr(0, query.length -1)};`;
