@@ -27,7 +27,7 @@ const model = {
       console.log(deviceToken);
       return FacebookManager.getId(facebookToken)
           .then(id => {
-            const query = "INSERT INTO user VALUES (?,?,?,?);";
+            const query = "INSERT INTO user (id, type, facebookId, deviceToken) VALUES (?,?,?,?);";
             return pool.query(query, [firebaseId, USER_TYPE.FACEBOOK, id, deviceToken]);
           })
           .then(() => {
