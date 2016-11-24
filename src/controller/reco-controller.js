@@ -8,6 +8,15 @@ const RECO_BODY = "알림을 눌러 확인하세요!";
 export default class RecoController {
 
     constructor() {}
+    static sendAll(req, res, next) {
+        RecoModel.getAllResult()
+          .then(list => {
+            list.map(data => {
+              data.recoId =uuid();
+              data.userId = data.id;
+            })
+          })
+    }
     
     static send(req, res, next) {
         const {list} = req.body;

@@ -1,6 +1,10 @@
 import pool from '../db';
 
 const model = {
+    getAllResult: () => {
+      const query = "SELECT * FROM result_view;";
+      return pool.query(query);
+    },
     addReco: (recoList) => {
       
       let query = "INSERT INTO install_reco VALUES";

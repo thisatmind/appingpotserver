@@ -5,5 +5,6 @@ const router = Router();
 
 router.put('/', RecoController.updateResult);
 router.post('/send', RecoController.send);
+router.post('/send/all', RecoController.sendAll);
 
 export default router;

@@ -6,7 +6,6 @@ import FirebaseManager from './firebase-util';
 import install from './router/install-router';
 import count from './router/count-router';
 import reco from './router/reco-router';
-
 const app = express();
 
 // express config
