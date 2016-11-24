@@ -14,7 +14,7 @@ export default class RecoController {
       
         RecoModel.getAllResult()
           .then(list => {
-            list
+            list = list
               .filter(data => {
                 if(userSet[data.id]) return false;
                 userSet[data.id] = true;
