@@ -16,7 +16,7 @@ export default class RecoController {
           .then(list => {
             list
               .filter(data => {
-                if(userSet(data.id)) return false;
+                if(userSet[data.id]) return false;
                 userSet[data.id] = true;
                 return true;
               })
