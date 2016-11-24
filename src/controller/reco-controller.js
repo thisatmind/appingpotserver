@@ -14,12 +14,12 @@ export default class RecoController {
       
         RecoModel.getAllResult()
           .then(list => {
-            console.log(list);
             list = list
               .filter(data => {
-                if(userSet[data.id]) return false;
-                userSet[data.id] = true;
-                return true;
+                if(!userSet[data.id]) {
+                  userSet[data.id] = true;
+                  return data;
+                }
               })
               .map(data => {
                 console.log(data);
