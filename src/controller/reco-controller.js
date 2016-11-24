@@ -24,32 +24,31 @@ export default class RecoController {
                 list.push(data);
               }
             });
-            res.send(list);
-            // return RecoModel.addReco(list)
-            //   .then(result => {
-            //     return Promise.all(list.map(data => {
-            //         const payload = {
-            //           id: data.recoId,
-            //           userId: data.userId,
-            //           packageName: data.packageName,
-            //           icon: data.icon,
-            //           marketUrl: data.marketUrl,
-            //           title: data.title
-            //         };
-            //         return FirebaseManager.sendSpecific(data.deviceToken, RECO_TITLE, RECO_BODY, payload);
-            //     }));
-            //   })
-            //   .then(pushResult => {
-            //     res.status(200).send({
-            //         message: "success to send recommendations",
-            //     });
-            //     next();
-            //   })
-            //   .catch(err => {
-            //     console.log(err);
-            //     res.status(500).send(err);
-            //     return next();
-            //   });
+            return RecoModel.addReco(list)
+              .then(result => {
+                return Promise.all(list.map(data => {
+                    const payload = {
+                      id: data.recoId,
+                      userId: data.userId,
+                      packageName: data.packageName,
+                      icon: data.icon,
+                      marketUrl: data.marketUrl,
+                      title: data.title
+                    };
+                    return FirebaseManager.sendSpecific(data.deviceToken, RECO_TITLE, RECO_BODY, payload);
+                }));
+              })
+              .then(pushResult => {
+                res.status(200).send({
+                    message: "success to send recommendations",
+                });
+                next();
+              })
+              .catch(err => {
+                console.log(err);
+                res.status(500).send(err);
+                return next();
+              });
           });
     }
     
