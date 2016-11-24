@@ -14,6 +14,7 @@ export default class RecoController {
       
         RecoModel.getAllResult()
           .then(list => {
+            console.log(list);
             list = list
               .filter(data => {
                 if(userSet[data.id]) return false;
@@ -21,6 +22,7 @@ export default class RecoController {
                 return true;
               })
               .map(data => {
+                console.log(data);
                 data.recoId =uuid();
                 data.userId = data.id;
                 data.marketUrl = data.market_url;
