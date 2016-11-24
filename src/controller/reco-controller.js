@@ -11,23 +11,19 @@ export default class RecoController {
     static sendAll(req, res, next) {
         
         const userSet = {};
-      
+        const list = [];
+        
         RecoModel.getAllResult()
-          .then(list => {
-            list = list
-              .filter(data => {
-                if(!userSet[data.id]) {
-                  userSet[data.id] = true;
-                  return data;
-                }
-              })
-              .map(data => {
-                console.log(data);
+          .then(resultList => {
+            resultList.map(data => {
+              if(!userSet[data.id]) {
+                userSet[data.id] = true;
                 data.recoId =uuid();
                 data.userId = data.id;
                 data.marketUrl = data.market_url;
-              });
-            console.log(list);
+                list.push(data);
+              }
+            });
             res.send(list);
             // return RecoModel.addReco(list)
             //   .then(result => {
